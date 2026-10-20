@@ -22,13 +22,23 @@ def create_tasks(
 
     research_task = Task(
         description=(
-            "Using the research brief, investigate the target customers, market "
-            "context, competitors, customer pain points, and relevant trends. "
-            "Do not invent facts. Label assumptions and identify evidence gaps."
+            "Research the market for {business_idea}. Use the available search "
+            "tool for current information. Investigate customer segments, "
+            "competitors, pain points, market trends, pricing signals, and "
+            "buying behavior. Cite the URL for every externally verifiable claim. "
+            "Do not invent statistics or sources. Separate verified findings, "
+            "assumptions, and open questions."
         ),
         expected_output=(
-            "An evidence-oriented research report containing findings, assumptions, "
-            "source requirements, competitors, customer insights, and open questions."
+            "A structured research report with these sections:\n"
+                "1. Executive summary\n"
+                "2. Customer segments\n"
+                "3. Customer pain points\n"
+                "4. Competitors\n"
+                "5. Market trends\n"
+                "6. Evidence and source URLs\n"
+                "7. Assumptions\n"
+                "8. Open questions"
         ),
         agent=research_agent,
         context=[planning_task],

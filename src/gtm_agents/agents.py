@@ -1,5 +1,8 @@
 from crewai import Agent
+#from crewai import Agent
+from gtm_agents.tools import ResearchSearchTool
 
+research_search_tool = ResearchSearchTool()
 
 def create_head_planner() -> Agent:
     return Agent(
@@ -21,13 +24,15 @@ def create_research_agent() -> Agent:
     return Agent(
         role="Research Agent",
         goal=(
-            "Gather relevant, evidence-based information about the target market, "
-            "customers, competitors, and industry context."
+            "Collect current, relevant, and verifiable market information using "
+            "the available search tool."
         ),
         backstory=(
-            "You are a meticulous market researcher. You distinguish verified "
-            "evidence from assumptions and identify gaps requiring further research."
+            "You are a meticulous market researcher. You search for evidence, "
+            "compare multiple sources, record source URLs and distinguish facts "
+            "from assumptions."
         ),
+        tools=[research_search_tool],
         verbose=True,
         allow_delegation=False,
     )

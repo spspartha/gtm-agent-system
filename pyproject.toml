@@ -9,6 +9,9 @@ authors = [
 requires-python = ">=3.10"
 dependencies = [
     "crewai[tools]>=1.15.28",
+    "httpx>=0.28.1",
+    "langchain-core>=1.6.12",
+    "mcp>=1.28.1",
     "numpy<2.3",
 ]
 
@@ -21,4 +24,10 @@ build-backend = "uv_build"
 
 [tool.uv]
 package = true
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+]
 
